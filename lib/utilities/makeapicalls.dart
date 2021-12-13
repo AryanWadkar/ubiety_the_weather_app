@@ -3,7 +3,7 @@ import 'package:http/http.dart' as httppackage;
 import 'dart:convert';
 import 'package:flutter/material.dart';
 
-const API_key='2bb57e14da1bd899481d42cf3276243a';
+const API_key='INSERT_API_KEY_HERE';
 const generalurl = 'https://api.openweathermap.org/data/2.5/weather';
 
 class NetworkManager{
