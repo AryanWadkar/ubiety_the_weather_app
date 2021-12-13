@@ -1,4 +1,6 @@
 # ubiety_the_weather_app
+A little flutter learning project.
+
 Ubiety the weather app repository.
 
 The app makes use of openweathermaps.org's api to fetch data.
