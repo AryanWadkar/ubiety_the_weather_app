@@ -1,9 +1,8 @@
-import 'package:flutter/services.dart';
 import 'package:http/http.dart' as httppackage;
 import 'dart:convert';
 import 'package:flutter/material.dart';
 
-const API_key='INSERT_API_KEY_HERE';
+const API_key='INSERT_YOUR_API_KEY_HERE';
 const generalurl = 'https://api.openweathermap.org/data/2.5/weather';
 
 class NetworkManager{
@@ -18,7 +17,7 @@ class NetworkManager{
           content: Text("Error retrieving data for your location!"),
           duration: Duration(seconds: 8),
         ));
-        SystemNavigator.pop();
+        return 1;
       }
       else{
         return jsonDecode(apireturn.body);
@@ -42,7 +41,7 @@ class NetworkManager{
       {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text("Error retrieving data for requested city!"),
-          duration: Duration(seconds: 8),
+          duration: Duration(seconds: 4),
         ));
         return '1';
       }
@@ -52,7 +51,7 @@ class NetworkManager{
     }catch(e){
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text("Internet not connected!"),
-        duration: Duration(seconds: 8),
+        duration: Duration(seconds: 4),
       ));
       return '1';
     }

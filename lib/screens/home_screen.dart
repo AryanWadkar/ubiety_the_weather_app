@@ -84,6 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         if (requestedjsondecoded == '1') {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                             content: Text("Try again!"),
+                            duration: Duration(seconds: 4),
                           ));
                           cityname = '';
                         } else {
@@ -304,7 +305,9 @@ class AppName extends StatelessWidget {
               fontFamily: 'Pacifico',
               fontSize: 50,
               color: Colors.white,
-              fontWeight: FontWeight.w200),
+              fontWeight: FontWeight.w200,
+            decoration: TextDecoration.none,
+          ),
         ),
       ),
     );
@@ -368,10 +371,11 @@ class TimerOrTime extends StatefulWidget {
 }
 
 class _TimerOrTimeState extends State<TimerOrTime> {
-  bool timer = true;
+  bool timer = false;
   String ampm = '--';
   Color iconcolor = Colors.grey;
   DateTime rendertime = DateTime.now();
+  String goodminute=getdata.timetosetorrise.minute <= 9 ? '0${getdata.timetosetorrise.minute.toString()}' : '${getdata.timetosetorrise.minute.toString()}';
   @override
   Widget build(BuildContext context) {
     if (getdata.setorrise == 'rise') {
@@ -409,7 +413,7 @@ class _TimerOrTimeState extends State<TimerOrTime> {
           propname: "Sun-${getdata.setorrise}",
           reqicon: Icons.wb_sunny,
           propvalue:
-              '${(getdata.timetosetorrise.hour.toInt() % 12).toString()}:${getdata.timetosetorrise.minute.toString()} $ampm ${getdata.zone}',
+              '${(getdata.timetosetorrise.hour.toInt() % 12).toString()}:$goodminute $ampm ${getdata.zone}',
           color: iconcolor,
         ),
         onTap: () {

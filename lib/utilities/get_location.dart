@@ -45,7 +45,6 @@ class UserLocation {
         Future.delayed(wait, (){
           return SystemNavigator.pop();
         });
-        Navigator.pop(context);
       }else if(e=='2'){
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: Text("Location permissions are permanently denied, we cannot request permissions."),
@@ -72,7 +71,7 @@ class UserLocation {
     LocationPermission permission;
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      openLocationSetting();
+      await openLocationSetting();
     }
 
     permission = await Geolocator.checkPermission();
@@ -89,7 +88,7 @@ class UserLocation {
         desiredAccuracy: LocationAccuracy.low);
   }
 
-  void openLocationSetting() async {
+  Future<void> openLocationSetting() async {
     final AndroidIntent intent = new AndroidIntent(
       action: 'android.settings.LOCATION_SOURCE_SETTINGS',
     );

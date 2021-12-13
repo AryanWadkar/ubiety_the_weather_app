@@ -61,7 +61,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
                             fontFamily: 'Pacifico',
                             fontSize: 50,
                             color: Colors.white,
-                            fontWeight: FontWeight.w200),
+                            fontWeight: FontWeight.w200,
+                          decoration: TextDecoration.none,
+                        ),
                       ),
                     ),
                     SizedBox(
