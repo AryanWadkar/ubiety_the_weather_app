@@ -375,9 +375,10 @@ class _TimerOrTimeState extends State<TimerOrTime> {
   String ampm = '--';
   Color iconcolor = Colors.grey;
   DateTime rendertime = DateTime.now();
-  String goodminute=getdata.timetosetorrise.minute <= 9 ? '0${getdata.timetosetorrise.minute.toString()}' : '${getdata.timetosetorrise.minute.toString()}';
+
   @override
   Widget build(BuildContext context) {
+    String goodminute=getdata.timetosetorrise.minute <= 9 ? '0${getdata.timetosetorrise.minute.toString()}' : '${getdata.timetosetorrise.minute.toString()}';
     if (getdata.setorrise == 'rise') {
       ampm = 'AM';
     } else if (getdata.setorrise == 'set') {
